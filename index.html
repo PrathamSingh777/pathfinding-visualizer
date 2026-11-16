@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathfinding Algorithm Visualizer</title>
+  <!-- Google Fonts for modern, clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Header & Toolbar -->
+  <header class="app-header">
+    <div class="logo-group">
+      <div class="logo-icon">⬡</div>
+      <h1>Pathfinding <span>Visualizer</span></h1>
+    </div>
+
+    <!-- Controls Toolbar -->
+    <div class="toolbar">
+      <!-- Algorithm Selector Dropdown -->
+      <div class="control-group">
+        <label for="algorithm-select">Algorithm</label>
+        <select id="algorithm-select">
+          <option value="bfs">Breadth-First Search (BFS)</option>
+          <option value="dfs">Depth-First Search (DFS)</option>
+          <option value="dijkstra">Dijkstra's Algorithm</option>
+          <option value="astar">A* Search</option>
+        </select>
+      </div>
+
+      <!-- Animation Speed Slider -->
+      <div class="control-group">
+        <label for="speed-slider">Speed: <span id="speed-label">Fast</span></label>
+        <input type="range" id="speed-slider" min="1" max="50" value="15" step="1">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="button-group">
+        <button id="visualize-btn" class="btn btn-primary">Visualize!</button>
+        <button id="maze-btn" class="btn btn-secondary">Generate Maze</button>
+        <button id="clear-path-btn" class="btn btn-secondary">Clear Path</button>
+        <button id="clear-board-btn" class="btn btn-secondary">Clear Board</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legend & Instructions Bar -->
+  <section class="legend-bar">
+    <div class="legend-item">
+      <div class="legend-box start-box"></div> Start Node (drag to move)
+    </div>
+    <div class="legend-item">
+      <div class="legend-box target-box"></div> Target Node (drag to move)
+    </div>
+    <div class="legend-item">
+      <div class="legend-box wall-box"></div> Wall (click & drag on grid)
+    </div>
+    <div class="legend-item">
+      <div class="legend-box unvisited-box"></div> Unvisited Node
+    </div>
+    <div class="legend-item">
+      <div class="legend-box visited-box"></div> Visited Node
+    </div>
+    <div class="legend-item">
+      <div class="legend-box path-box"></div> Shortest Path
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="stats-bar">
+    <div class="stat-item">Visited Nodes: <span id="visited-count" class="stat-value">0</span></div>
+    <div class="stat-item">Path Length: <span id="path-count" class="stat-value">0</span></div>
+    <div class="stat-item">Status: <span id="status-text" class="stat-value">Ready</span></div>
+  </section>
+
+  <!-- Main Grid Canvas Container -->
+  <main class="grid-container">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <!-- Scripts in dependency order -->
+  <script src="js/node.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/maze.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/animate.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
